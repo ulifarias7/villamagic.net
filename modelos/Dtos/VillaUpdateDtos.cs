@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 namespace Magic.curso.net.modelos.Dtos
 {
-    public class VillaUpdateDtos
+    public class VillaUpdate
     {
+        [Required]
         public int ID { get; set; }
 
         [Required]
@@ -12,10 +13,14 @@ namespace Magic.curso.net.modelos.Dtos
         public string Detalle {  get; set; }
         [Required]
         public double Tarifa { get; set; }
-
-        public int Ocupante { get; set; }
-        public int MetrosCuadrados { get; set; }
         
+        [Required]
+        public int Ocupante { get; set; }
+
+        [Required]
+        public int MetrosCuadrados { get; set; }
+
+        [Required]
         public string ImagenUrl { get; set; }
 
         public string Amenidad { get; set; }

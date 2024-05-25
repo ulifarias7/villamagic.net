@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Magic.curso.net")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3da29b566c71c2dbb103a6a0aef5e390f78926ae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56f07b1173bdd2057b93b2b6cb2ee8ddd19364a3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Magic.curso.net")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Magic.curso.net")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

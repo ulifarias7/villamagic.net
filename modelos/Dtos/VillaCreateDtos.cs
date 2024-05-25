@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 namespace Magic.curso.net.modelos.Dtos
 {
-    public class VillaUpdateDtos
+    public class VillaCreateDtos
     {
-        public int ID { get; set; }
 
         [Required]
         [MaxLength(30)]//un maximo de 30 caracteres

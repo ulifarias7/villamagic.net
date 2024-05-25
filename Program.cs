@@ -1,4 +1,4 @@
-using Magic.curso.net.modelos.Dtos;
+using Magic.curso.net.Datos;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

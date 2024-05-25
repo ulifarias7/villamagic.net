@@ -1,15 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Magic.curso.net.modelos;
+using Microsoft.EntityFrameworkCore;
 
-namespace Magic.curso.net.modelos.Dtos
+namespace Magic.curso.net.Datos
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext>options) :base(options) //mandamos la configuracion por medio de configuracion de dependencia lo que tengamos en el servicio
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) //mandamos la configuracion por medio de configuracion de dependencia lo que tengamos en el servicio
         {
 
         }
 
-        public DbSet<Villa> villas {  get; set; }  //modelos q se crean en la base de datos (con todos los atributos de la clase VIlla)
+        public DbSet<Villa> villas { get; set; }  //modelos q se crean en la base de datos (con todos los atributos de la clase VIlla)
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)//onmodelcreating : se utiliza para configurar el modelo de datos

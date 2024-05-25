@@ -4,6 +4,7 @@ using Magic.curso.net.modelos.Dtos;//importaciones de dtos
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Magic.curso.net.Controllers
 {
@@ -31,7 +32,7 @@ namespace Magic.curso.net.Controllers
         //empoint (metodos)
 
         [HttpGet("GetVillas")]
-        public ActionResult<IEnumerable<VillaDtos>> GetVillas()
+        public ActionResult<IEnumerable<VillaUpdateDtos>> GetVillas()
         {
             _logger.LogInformation("obtener las villas ");
             return Ok(_db.villas.ToList()); // se esta forma es como que estariamos haciendo un ""Select * from villa ; " 
@@ -47,7 +48,7 @@ namespace Magic.curso.net.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-        public ActionResult<VillaDtos> GetVilla(int ID)
+        public ActionResult<VillaUpdateDtos> GetVilla(int ID)
 
         {
             if (ID == 0)
@@ -67,7 +68,7 @@ namespace Magic.curso.net.Controllers
 
         }
 
-
+                
 
 
 
@@ -78,7 +79,7 @@ namespace Magic.curso.net.Controllers
 
 
         //frombody : nos indica que vamos a recibir datos  y los datos que vamos a recibir es el de villadtos
-        public ActionResult<VillaDtos> Crearvilla([FromBody] VillaDtos villaDtos)
+        public ActionResult<VillaUpdateDtos> Crearvilla([FromBody] VillaCreateDtos villaDtos)
         {
             if (!ModelState.IsValid) //! el signo es por si no esta valido
             {
@@ -97,10 +98,10 @@ namespace Magic.curso.net.Controllers
                 return BadRequest(villaDtos);
             }
 
-            if (villaDtos.ID > 0) //si hay un error interno que salte ese estatu internal server
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
+            //if (villaDtos.ID > 0) //si hay un error interno que salte ese estatu internal server
+            //{
+            //    return StatusCode(StatusCodes.Status500InternalServerError);
+            //}
             //villaDtos.ID = VillaStore.villalist.OrderByDescending(v => v.ID).FirstOrDefault().ID + 1;
             //VillaStore.villalist.Add(villaDtos);
 
@@ -121,7 +122,7 @@ namespace Magic.curso.net.Controllers
             _db.SaveChanges(); // para que los cambios se vean reflejados en la base de datos
 
 
-            return CreatedAtRoute("GetVilla", new { id = villaDtos.ID }, villaDtos);
+            return CreatedAtRoute("GetVilla", new { id = modelo.ID }, modelo);
         }
 
 
@@ -156,7 +157,7 @@ namespace Magic.curso.net.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
        
-        public IActionResult UpdateVilla(int ID, [FromBody] VillaDtos villaDtos) 
+        public IActionResult UpdateVilla(int ID, [FromBody] VillaUpdateDtos villaDtos) 
         { 
             if(villaDtos==null || ID!= villaDtos.ID) //si el objeto que recibe villadtos lo recibe nulo(osea nada) y podemos complementarlo con las || y el id que estoy recibiendo es diferrente al de villadtos
 
@@ -193,15 +194,15 @@ namespace Magic.curso.net.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
-        public IActionResult UpdatePartialVilla(int ID, JsonPatchDocument<VillaDtos> PatchDtos)
+        public IActionResult UpdatePartialVilla(int ID, JsonPatchDocument<VillaUpdateDtos> PatchDtos)
         {
             if (PatchDtos == null || ID == 0)
 
             {
                 return BadRequest();
             }
-            var villa = _db.villas.FirstOrDefault(v => v.ID == ID);
-            VillaDtos villaDtos = new()
+            var villa = _db.villas.AsNoTracking().FirstOrDefault(v => v.ID == ID); // asnotracking me permite consultar un registro del dbcontext
+            VillaUpdateDtos villaDtos = new()
             {
                 ID = villa.ID,
                 Nombre = villa.Nombre,
