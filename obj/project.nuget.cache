@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "uefFvASAGxcQ3VCam5kJb8PxqC4qEXjqdjxZAZdedb826yaDgKdiWzLJwZ/DxOThZ6pB3wX2ykSKFP5m5pMLQw==",
+  "dgSpecHash": "r04L64wnUnGlI4LTjP1BAZObGx8mJwzDkHBgdOqYX1UHaM0wJawb4mDx0d12LEG22gifyu+gX9O1qq7jvntx+w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Magic.curso.net\\Magic.curso.net\\Magic.curso.net.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 namespace Magic.curso.net.modelos.Dtos
 {
-    public class VillaUpdate
+    public class VillaUpdateDtos
     {
         [Required]
         public int ID { get; set; }
